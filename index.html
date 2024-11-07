@@ -69,6 +69,89 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-PHP基本语法（一）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/11/07/PHP%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89/" class="article-date">
+  <time class="dt-published" datetime="2024-11-07T01:32:20.000Z" itemprop="datePublished">2024-11-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/11/07/PHP%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89/">PHP基本语法（一）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>学习</p>
+<hr>
+<p> <img src="/.com//5.png" alt="5"><br>2. 变量<br>$name&#x3D;’微博’;&#x2F;&#x2F;字符串类型<br>$age&#x3D;18;&#x2F;&#x2F;int类型<br>$boolValue&#x3D;true;&#x2F;&#x2F;布尔类型<br>$arrayValue&#x3D;array(‘1’,’2’,3,true,1.11);&#x2F;&#x2F;数组类型<br>3. 常量<br>常量<br>define(‘name’,’fly’);<br>echo name ;&#x2F;&#x2F;;fly</p>
+<ol start="4">
+<li><p>var_dump()<br>var_dump() 函数返回变量的数据类型和值：<br>var_dump(‘aaa’);<br>1<br>2</p>
+</li>
+<li><p>php类型比较<br>使用两个等号 &#x3D;&#x3D; 比较，只比较值，不比较类型<br>用三个等号 &#x3D;&#x3D;&#x3D; 比较，除了比较值，也比较类型。</p>
+</li>
+<li><p>计算</p>
+</li>
+</ol>
+<p>$a&#x3D;10;$b&#x3D;3;<br>加法：+      $a+$b  结果是13<br> 减法：-    $a-$b  结果是7<br> 乘法：*    $a*$b  结果是30<br> 除法：&#x2F;      $a&#x2F;$b  结果是3.33333<br>取余：%       $a%$b  结果是1<br> 取反：-         -$a  结果是-10<br>并值：.           $a.$b  结果是103      </p>
+<ol start="7">
+<li><p>if…else<br>if(1&#x3D;&#x3D;2){<br> echo ‘1’;<br>}else{<br> echo ‘2’;<br>}<br>&#x2F;&#x2F;最后输出2</p>
+</li>
+<li><p>if…elseif…else<br>$a&#x3D;3;<br>if($a&#x3D;&#x3D;1){<br> echo ‘1’;<br>}elseif ($a&#x3D;&#x3D;2){<br> echo ‘2’;<br>}else{<br> echo ‘3’;<br>}<br>&#x2F;&#x2F;最后输出3</p>
+</li>
+<li><p>switch<br>$a&#x3D;3;<br>switch ($a){<br> case 1:<br> echo ‘1’;<br> break;<br> case 2:<br> echo ‘2’;<br> break;<br> case 3:<br> echo ‘3’;<br> break;<br> default:<br> echo ‘default’;</p>
+</li>
+</ol>
+<p>}<br>&#x2F;&#x2F;最后输出3<br>10. for循环<br>for ($a&#x3D;0;$a&lt;5;$a++){<br>   echo $a.’<br>‘;<br>}<br>结果：<br>0<br>1<br>2<br>3<br>4<br>11. foreach<br>$arrayAnimal&#x3D;array(‘狗子’,’蓝猫’,’猫咪’);<br>foreach ($arrayAnimal as $key&#x3D;&gt;$value){<br>    echo $key.’:’.$value.’<br>‘;<br>}<br>结果<br>0:狗子<br>1:蓝猫<br>2:猫咪<br>12. 数组<br>a. 数组的定义<br>$student&#x3D;array(‘张三’,’李四’);<br>echo $student[0].’,’.$student[1].’<br>‘;&#x2F;&#x2F;张三,李四<br>echo ‘$student的数量：’.count($student).’<br>‘;&#x2F;&#x2F;$student的数量：2</p>
+<p>$student2[0]&#x3D;0;<br>$student2[1]&#x3D;1;<br>$student2[2]&#x3D;2;<br>echo $student2[0].’,’.$student2[1].’<br>‘;&#x2F;&#x2F;0,1<br>echo ‘$student2的数量：’.count($student2).’<br>‘;&#x2F;&#x2F;$student2的数量：3</p>
+<p>&#x2F;&#x2F;遍历    数组<br>$student2Count&#x3D;count($student2);<br>for ($x&#x3D;0;$x&lt;$student2Count;$x++){<br>    echo $student2[$x].’<br>‘;<br>}<br>b. 获取数组的长度：count()<br>c. 遍历数组<br>&#x2F;&#x2F;遍历数组<br>$student2Count&#x3D;count($student2);<br>for ($x&#x3D;0;$x&lt;$student2Count;$x++){<br>    echo $student2[$x].’<br>‘;<br>}<br>&#x2F;&#x2F;0<br>1<br>2<br>13. 关联数组<br>$pigs&#x3D;array(‘拉布拉多’&#x3D;&gt;’100’,’哈士奇’&#x3D;&gt;’200’,’泰迪’&#x3D;&gt;’50’);<br>foreach($pigs as $pig&#x3D;&gt;$value){<br>    echo $pig.’的重量是：’.$value.’<br>‘;<br>}</p>
+<p>拉布拉多的重量是：100<br>哈士奇的重量是：200<br>泰迪的重量是：50<br>14. 数组排序<br>&#x2F;&#x2F;sort() - 对数组进行升序排列<br>&#x2F;&#x2F;rsort() - 对数组进行降序排列<br>&#x2F;&#x2F;asort() - 根据关联数组的值，对数组进行升序排列<br>&#x2F;&#x2F;arsort() - 根据关联数组的值，对数组进行降序排列<br>&#x2F;&#x2F;ksort() - 根据关联数组的键，对数组进行升序排列<br>&#x2F;&#x2F;krsort() - 根据关联数组的键，对数组进行降序排列</p>
+<p>&#x2F;&#x2F;sort() - 对数组进行升序排列<br>&#x2F;&#x2F;rsort() - 对数组进行降序排列<br>$agesArray &#x3D; array(30,35,20,14,19);<br>sort($agesArray);<br>echo ‘sort() ：对数组升序<br>‘;<br>for ($x&#x3D;0;$x&lt;count($agesArray);$x++){<br>    echo ‘第’.$x.’个元素值：’.$agesArray[$x].’;’;<br>}<br>sort() ：对数组升序<br>第0个元素值：14;第1个元素值：19;第2个元素值：20;第3个元素值：30;第4个元素值：35;</p>
+<p>echo ‘<br>sort() ：对数组降序<br>‘;<br>rsort($agesArray);<br>for ($x&#x3D;0;$x&lt;count($agesArray);$x++){<br>    echo ‘第’.$x.’个元素值：’.$agesArray[$x].’;’;<br>}<br>rsort() ：对数组降序<br>第0个元素值：35;第1个元素值：30;第2个元素值：20;第3个元素值：19;第4个元素值：14;<br>&#x2F;&#x2F;asort() - 根据关联数组的值，对数组进行升序排列<br>&#x2F;&#x2F;arsort() - 根据关联数组的值，对数组进行降序排列<br>$students&#x3D;array(0&#x3D;&gt;200,1&#x3D;&gt;80,2&#x3D;&gt;50);</p>
+<p>asort($students);<br>echo ‘<br><br> asort 根据关联数组的值，对数组进行升序排列<br>‘;<br>foreach($students as $key&#x3D;&gt;$value){<br>    echo $key.’:’.$value.’<br>‘;<br>}</p>
+<p>arsort($students);<br>echo ‘<br><br> arsort 根据关联数组的值，对数组进行降序排列<br>‘;<br>foreach($students as $key&#x3D;&gt;$value){<br>    echo $key.’:’.$value.’<br>‘;<br>}</p>
+<p>asort 根据关联数组的值，对数组进行升序排列<br>2:50<br>1:80<br>0:200<br>arsort 根据关联数组的值，对数组进行降序排列<br>0:200<br>1:80<br>2:50<br>&#x2F;&#x2F;ksort() - 根据关联数组的键，对数组进行升序排列<br>&#x2F;&#x2F;krsort() - 根据关联数组的键，对数组进行降序排列<br>ksort($students);<br>echo ‘<br><br> ksort 根据关联数组的键，对数组进行升序排列<br>‘;<br>foreach($students as $key&#x3D;&gt;$value){</p>
+<pre><code>echo $key.&#39;:&#39;.$value.&#39;&lt;br&gt;&#39;;
+</code></pre>
+<p>}</p>
+<p>krsort($students);<br>echo ‘<br><br> krsort 根据关联数组的键，对数组进行降序排列<br>‘;<br>foreach($students as $key&#x3D;&gt;$value){</p>
+<pre><code>echo $key.&#39;:&#39;.$value.&#39;&lt;br&gt;&#39;;
+</code></pre>
+<p>}</p>
+<p>ksort 根据关联数组的键，对数组进行升序排列<br>0:200<br>1:80<br>2:50</p>
+<p>krsort 根据关联数组的键，对数组进行降序排列<br>2:50<br>1:80<br>0:200<br>15. 超级全局变量<br>PHP中预定义了几个超级全局变量G L O B A L S ， GLOBALS，GLOBALS，_SERVER等<br>$GLOBALS</p>
+<p>echo ‘<br>GLOBALS<br>‘;<br>$x&#x3D;1;<br>$y&#x3D;2;</p>
+<p>function add(){<br>    $GLOBALS[‘z’]&#x3D;$GLOBALS[‘x’]+$GLOBALS[‘y’];<br>}<br>add();<br>echo $GLOBALS[‘z’];&#x2F;&#x2F;3<br>do…while<br>$i&#x3D;0;do{<br>    echo ‘当前数字：’.$i.’<br>‘;<br>    $i++;}while($i&lt;5);<br>当前数字：0<br>当前数字：1<br>当前数字：2<br>当前数字：3<br>当前数字：4</p>
+<p>————————————————</p>
+<pre><code>                        版权声明：本文为博主原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接和本声明。
+                    
+</code></pre>
+<p>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/yinsefeixingchuan/article/details/123750305">https://blog.csdn.net/yinsefeixingchuan/article/details/123750305</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/11/07/PHP%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89/" data-id="cm36nvf3m000264ut6o6iggdq" data-title="PHP基本语法（一）" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-抹茶小蛋糕" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/09/23/%E6%8A%B9%E8%8C%B6%E5%B0%8F%E8%9B%8B%E7%B3%95/" class="article-date">
@@ -96,7 +179,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/09/23/%E6%8A%B9%E8%8C%B6%E5%B0%8F%E8%9B%8B%E7%B3%95/" data-id="cm2kd3hqj0002n8ut6ey72ae9" data-title="抹茶小蛋糕" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/09/23/%E6%8A%B9%E8%8C%B6%E5%B0%8F%E8%9B%8B%E7%B3%95/" data-id="cm36nvf3n000364uta9bz6l6b" data-title="抹茶小蛋糕" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -130,8 +213,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="生活—随笔categories-日记"><a href="#生活—随笔categories-日记" class="headerlink" title="生活—随笔categories:-日记"></a>生活<br>—随笔<br>categories:<br>-日记</h2><p>#Ubuntu22-04虚拟机和kali的搭建过程</p>
-<p>Ubuntu22-04虚拟机的搭建<br>一、准备工作</p>
+        <h2 id="生活—随笔-日记"><a href="#生活—随笔-日记" class="headerlink" title="生活—随笔-日记"></a>生活<br>—随笔<br>-日记</h2><p>Ubuntu22-04虚拟机的搭建<br>一、准备工作</p>
 <ol>
 <li>软件下载<br>1.1 下载VMware软件：前往VMware官网（<a target="_blank" rel="noopener" href="https://www.vmware.com/%EF%BC%89%E4%B8%8B%E8%BD%BDVMware">https://www.vmware.com/）下载VMware</a> Workstation Pro或VMware Player版本。<br>1.2 下载Ubuntu 22.04镜像：前往Ubuntu官网（<a target="_blank" rel="noopener" href="https://ubuntu.com/download/desktop%EF%BC%89%E4%B8%8B%E8%BD%BDUbuntu">https://ubuntu.com/download/desktop）下载Ubuntu</a> 22.04 ISO镜像文件。</li>
 <li>硬件要求<br>确保您的计算机硬件满足以下最低要求：<ul>
@@ -223,7 +305,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/09/23/Ubuntu22-04%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%92%8Ckali%E7%9A%84%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/" data-id="cm2kd3hql0005n8utbxhc06ut" data-title="Ubuntu22.04虚拟机和kali的搭建过程" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/09/23/Ubuntu22-04%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%92%8Ckali%E7%9A%84%E6%90%AD%E5%BB%BA%E8%BF%87%E7%A8%8B/" data-id="cm36nvf3c000064ut07c58dop" data-title="Ubuntu22.04虚拟机和kali的搭建过程" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -241,10 +323,6 @@
   <time class="dt-published" datetime="2024-09-17T02:47:08.000Z" itemprop="datePublished">2024-09-17</time>
 </a>
     
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a>
-  </div>
-
   </div>
   <div class="article-inner">
     
@@ -261,18 +339,19 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>#我的博客搭建心路历程<br>首先我通过ChatGLM了解了什么是github和hexo并且知道了如何搭建基于 github+hexo 的个人博客。虽然我对编程一知半解，但是我怀着坚定的信念开始一步步学习如何搭建博客。</p>
+        <p>首先我通过ChatGLM了解了什么是github和hexo并且知道了如何搭建基于 github+hexo 的个人博客。虽然我对编程一知半解，但是我怀着坚定的信念开始一步步学习如何搭建博客。</p>
 <p>1.安装 Node.js 和 Git：在搭建过程中，我遇到了各种问题，如环境配置、依赖安装等。在不断尝试和摸索中，我逐步解决了这些问题。</p>
 <p>2.初始化博客：按照教程，我成功初始化了博客，并学会了如何生成、部署静态文件。</p>
-<h2 id="当我第一次在浏览器中输入自己的博客地址，看到那篇亲手撰写的文章时，内心充满了喜悦。我知道，这不仅仅是一个博客，更是我成长道路上的一座里程碑。"><a href="#当我第一次在浏览器中输入自己的博客地址，看到那篇亲手撰写的文章时，内心充满了喜悦。我知道，这不仅仅是一个博客，更是我成长道路上的一座里程碑。" class="headerlink" title="当我第一次在浏览器中输入自己的博客地址，看到那篇亲手撰写的文章时，内心充满了喜悦。我知道，这不仅仅是一个博客，更是我成长道路上的一座里程碑。"></a>当我第一次在浏览器中输入自己的博客地址，看到那篇亲手撰写的文章时，内心充满了喜悦。我知道，这不仅仅是一个博客，更是我成长道路上的一座里程碑。</h2>
+<p>当我第一次在浏览器中输入自己的博客地址，看到那篇亲手撰写的文章时，内心充满了喜悦。我知道，这不仅仅是一个博客，更是我成长道路上的一座里程碑。</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/09/17/2024-09-17-%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%BF%83%E8%B7%AF%E5%8E%86%E7%A8%8B/" data-id="cm2kd3hqi0001n8uth00egih9" data-title="2024-09-17-我的博客搭建心路历程" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/09/17/2024-09-17-%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%BF%83%E8%B7%AF%E5%8E%86%E7%A8%8B/" data-id="cm36nvf3o000464utehp1eqx2" data-title="2024-09-17-我的博客搭建心路历程" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9A%8F%E7%AC%94/" rel="tag">随笔</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%97%A5%E8%AE%B0/" rel="tag">日记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9A%8F%E7%AC%94/" rel="tag">随笔</a></li></ul>
 
     </footer>
   </div>
@@ -321,7 +400,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/09/14/hello-world/" data-id="cm2kd3hq70000n8utc5zf1tg7" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2024/09/14/hello-world/" data-id="cm36nvf3k000164ut2rtpfsw5" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -340,20 +419,13 @@
           <aside id="sidebar">
   
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a></li></ul>
-    </div>
-  </div>
-
 
   
     
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9A%8F%E7%AC%94/" rel="tag">随笔</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E8%AE%B0/" rel="tag">日记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9A%8F%E7%AC%94/" rel="tag">随笔</a></li></ul>
     </div>
   </div>
 
@@ -363,7 +435,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/%E7%94%9F%E6%B4%BB/" style="font-size: 10px;">生活</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 10px;">随笔</a>
+      <a href="/tags/%E6%97%A5%E8%AE%B0/" style="font-size: 10px;">日记</a> <a href="/tags/%E7%94%9F%E6%B4%BB/" style="font-size: 10px;">生活</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 10px;">随笔</a>
     </div>
   </div>
 
@@ -372,7 +444,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li></ul>
     </div>
   </div>
 
@@ -383,6 +455,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2024/11/07/PHP%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89/">PHP基本语法（一）</a>
+          </li>
         
           <li>
             <a href="/2024/09/23/%E6%8A%B9%E8%8C%B6%E5%B0%8F%E8%9B%8B%E7%B3%95/">抹茶小蛋糕</a>
