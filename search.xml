@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>小插曲</title>
+      <link href="/2024/11/10/%E8%BF%99%E8%AE%A9%E4%BA%BA%E6%8A%93%E7%8B%82/"/>
+      <url>/2024/11/10/%E8%BF%99%E8%AE%A9%E4%BA%BA%E6%8A%93%E7%8B%82/</url>
+      
+        <content type="html"><![CDATA[<p>日常</p><hr><p>今天早上，我在吃完早餐后打开电脑，继续对我的博客进行美化（昨天已经弄一半了）。差不多<br>搞了一个多小时，在弄完之后，我想先进行本地预览。但当我试图运行程序时，它报错了。<br><img src="/images/error.png" alt="error"><br>于是我根据“TypeError: coverVal.indexOf is not a function”这句在网上搜索，在网上苦苦寻找了一番，但都对问题的解决没有起到作用。我就这样忙活了一个中午，最后不得不暂时放弃。<br>在吃完晚饭后，我开始尝试求助于学长，他问我有没有修改文件中的代码。于是乎，我开始查阅我在美化博客时的参考教程，最终发现了问题所在：<br>导致错误的代码：<br><img src="/images/%E5%AF%BC%E8%87%B4%E9%94%99%E8%AF%AF%E7%9A%84%E4%BB%A3%E7%A0%81.png" alt="导致错误的代码"><br>原来的代码：<br><img src="/images/%E5%8E%9F%E6%9D%A5%E7%9A%84%E4%BB%A3%E7%A0%81.png" alt="原来的代码"><br>最终也是解决了问题，这里要感谢学长的提醒。</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>PHP基本语法（二）</title>
       <link href="/2024/11/09/PHP%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
       <url>/2024/11/09/PHP%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
