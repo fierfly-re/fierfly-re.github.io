@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>sql注入基础（一）</title>
+      <link href="/2024/11/17/sql%E6%B3%A8%E5%85%A5%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+      <url>/2024/11/17/sql%E6%B3%A8%E5%85%A5%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%80%EF%BC%89/</url>
+      
+        <content type="html"><![CDATA[<p>一、什么是注入<br>所谓SQL注入，就是通过把SQL命令插入到WEB表单提交或输入域名或页面请求的查询字符串，最终到达欺骗服务器执行恶意的SQL命令，从而进步得到相应的数据信息。</p><p>通过构造一条精巧的语句，来查询到想要得到的信息。</p><p>二、注入分类<br>1.按照查询字段<br>字符型:当输入的参数为字符串时，称为字符型。<br>数字型:当输入的参数为整形多，可以认为是数字型<br>2.按照注入方法<br>Union注入，报错注入，布尔注入，时间注入<br>三、什么是注入点<br>1.注入点就是可以实行注入的地方，通常是一个访问数据库的连接<br>2.如何判断是字符型注入还是数字型注入<br>使用and 1&#x3D;1和and 1&#x3D;2来判断<br>数字型一般提交内容为数字。但数字不一定为数字型<br>Less-1提交and 1&#x3D;1和提交and 1&#x3D;2都能正常显示界面，则不可能是数字型注入，即为字符型注入。<br>Less-2提交and 1&#x3D;2条件无法满足，语句无法被数据库查询到，网页无法正常显示，判断为数字型注入。<br>三、闭合方式<br>    ‘    “    ‘)    “)    其他<br>四、闭合的作用<br>手工提交闭合符号，结束前一段查询语句，后面即可加入其他语句，查询需要的参数，不需要的语句可以用注释符号’–+’或’#’或’%23’注释掉<br>注释掉:利用注释符号将程序段脱离运行。把某段程序注释掉，就是让它暂时不运行（而非删除掉）。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>动图测试</title>
       <link href="/2024/11/11/%E5%8A%A8%E5%9B%BE%E6%B5%8B%E8%AF%95/"/>
       <url>/2024/11/11/%E5%8A%A8%E5%9B%BE%E6%B5%8B%E8%AF%95/</url>
@@ -11,6 +30,12 @@
         <content type="html"><![CDATA[<p><img src="/images/%E6%91%86%E7%83%82.gif" alt="摆烂"></p>]]></content>
       
       
+      
+        <tags>
+            
+            <tag> 生活 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -101,9 +126,15 @@
       <link href="/2024/09/23/%E6%8A%B9%E8%8C%B6%E5%B0%8F%E8%9B%8B%E7%B3%95/"/>
       <url>/2024/09/23/%E6%8A%B9%E8%8C%B6%E5%B0%8F%E8%9B%8B%E7%B3%95/</url>
       
-        <content type="html"><![CDATA[<p>— <img src="/images/%E6%8A%B9%E8%8C%B6%E5%B0%8F%E8%9B%8B%E7%B3%95.webp" alt="抹茶小蛋糕"></p>]]></content>
+        <content type="html"><![CDATA[<p><img src="/images/%E6%8A%B9%E8%8C%B6%E5%B0%8F%E8%9B%8B%E7%B3%95.webp" alt="抹茶小蛋糕"></p>]]></content>
       
       
+      
+        <tags>
+            
+            <tag> 生活 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -121,6 +152,8 @@
         <tags>
             
             <tag> 生活 </tag>
+            
+            <tag> 随笔 </tag>
             
         </tags>
       
