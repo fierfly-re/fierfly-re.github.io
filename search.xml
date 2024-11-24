@@ -8,7 +8,7 @@
       <link href="/2024/11/24/mysql%E5%A2%9E%E5%88%A0%E6%94%B9%EF%BC%88%E4%B8%80%EF%BC%89/"/>
       <url>/2024/11/24/mysql%E5%A2%9E%E5%88%A0%E6%94%B9%EF%BC%88%E4%B8%80%EF%BC%89/</url>
       
-        <content type="html"><![CDATA[<p>mysql增删改（一）<br>（使用phpAdmin）<br>一、数据库</p><p>~#mysql -u root -p<br>#输入密码登录数据库</p><blockquote><p>show databases;<br>#查着数据库<br>create database employees charset utf8;<br>#创建数据库employees并选择字符集&gt;drop database employees;<br>#删除数据库employees<br>use employees;<br>#选择进入数据库employees</p></blockquote><p>二、数据表</p><blockquote><p>create table employee<br>#创建数据表employee<br>-&gt;(<br>-&gt;id int,name varchar(40),sex char(4),birthday date,job varchar(100))<br>#带入表格信息及相关参数</p></blockquote><blockquote><p>show full columns from employee;<br>#查看数据表信息<br>select * from employee;<br>#查着数据表列表<br>drop table employee;<br>#删除数据表<br>rename table employee to user;<br>#修改数据表名称为user<br>alter table user character set utf8;<br>#修改字符级</p></blockquote>]]></content>
+        <content type="html"><![CDATA[<p>（使用phpAdmin）<br>一、数据库</p><p>~#mysql -u root -p<br>#输入密码登录数据库</p><blockquote><p>show databases;<br>#查着数据库<br>create database employees charset utf8;<br>#创建数据库employees并选择字符集&gt;drop database employees;<br>#删除数据库employees<br>use employees;<br>#选择进入数据库employees</p></blockquote><p>二、数据表</p><blockquote><p>create table employee<br>#创建数据表employee<br>-&gt;(<br>-&gt;id int,name varchar(40),sex char(4),birthday date,job varchar(100))<br>#带入表格信息及相关参数</p></blockquote><blockquote><p>show full columns from employee;<br>#查看数据表信息<br>select * from employee;<br>#查着数据表列表<br>drop table employee;<br>#删除数据表<br>rename table employee to user;<br>#修改数据表名称为user<br>alter table user character set utf8;<br>#修改字符级</p></blockquote>]]></content>
       
       
       
