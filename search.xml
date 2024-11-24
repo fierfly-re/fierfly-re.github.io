@@ -4,11 +4,30 @@
   
     
     <entry>
+      <title>mysql增删改（一）</title>
+      <link href="/2024/11/24/mysql%E5%A2%9E%E5%88%A0%E6%94%B9%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+      <url>/2024/11/24/mysql%E5%A2%9E%E5%88%A0%E6%94%B9%EF%BC%88%E4%B8%80%EF%BC%89/</url>
+      
+        <content type="html"><![CDATA[<p>mysql增删改（一）<br>（使用phpAdmin）<br>一、数据库</p><p>~#mysql -u root -p<br>#输入密码登录数据库</p><blockquote><p>show databases;<br>#查着数据库<br>create database employees charset utf8;<br>#创建数据库employees并选择字符集&gt;drop database employees;<br>#删除数据库employees<br>use employees;<br>#选择进入数据库employees</p></blockquote><p>二、数据表</p><blockquote><p>create table employee<br>#创建数据表employee<br>-&gt;(<br>-&gt;id int,name varchar(40),sex char(4),birthday date,job varchar(100))<br>#带入表格信息及相关参数</p></blockquote><blockquote><p>show full columns from employee;<br>#查看数据表信息<br>select * from employee;<br>#查着数据表列表<br>drop table employee;<br>#删除数据表<br>rename table employee to user;<br>#修改数据表名称为user<br>alter table user character set utf8;<br>#修改字符级</p></blockquote>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>sql注入基础（二）</title>
       <link href="/2024/11/19/sql%E6%B3%A8%E5%85%A5%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
       <url>/2024/11/19/sql%E6%B3%A8%E5%85%A5%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
       
-        <content type="html"><![CDATA[<p>一、union联合注入<br>1.提交   ?id&#x3D;1’ union select database() –+</p><p>2.用group by二分法判断默认页面数据列数量<br>?id&#x3D;1’ group by 4 –+<br>(order by有同样效果)<br>?id&#x3D;1’ group by 3 –+<br>得到列数为3<br>3.页面只能显示一个内容，第二句的内容是不显示的，可以把第一句的内容改为数据库不存在的数据，如id&#x3D;0。<br>?id&#x3D;0’ union select 1,2,database() –+<br>二、注入顺序<br>1、查找注入点<br>2、判断是字符型还是数字型注入<br>and 1&#x3D;1 1&#x3D;2&#x2F; 3-1<br>3、如果字符型，找到他的闭合方式<br>        ‘    “    ‘)    “) <br>4、判断查询列数,group by   order by<br>5、查询回显位置,-1</p>]]></content>
+        <content type="html"><![CDATA[<p>一、union联合注入<br>1.提交   ?id&#x3D;1’ union select database() –+<br>2.用group by二分法判断默认页面数据列数量<br>?id&#x3D;1’ group by 4 –+<br>(order by有同样效果)<br>?id&#x3D;1’ group by 3 –+<br>得到列数为3<br>3.页面只能显示一个内容，第二句的内容是不显示的，可以把第一句的内容改为数据库不存在的数据，如id&#x3D;0。<br>?id&#x3D;0’ union select 1,2,database() –+<br>二、注入顺序<br>1、查找注入点<br>2、判断是字符型还是数字型注入<br>and 1&#x3D;1 1&#x3D;2&#x2F; 3-1<br>3、如果字符型，找到他的闭合方式<br>        ‘    “    ‘)    “) <br>4、判断查询列数,group by   order by<br>5、查询回显位置,-1</p>]]></content>
       
       
       
