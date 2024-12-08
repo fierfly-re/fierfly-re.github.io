@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>mysql增删改（二）</title>
+      <link href="/2024/12/08/mysql%E5%A2%9E%E5%88%A0%E6%94%B9%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
+      <url>/2024/12/08/mysql%E5%A2%9E%E5%88%A0%E6%94%B9%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
+      
+        <content type="html"><![CDATA[<p>一、数据列和数据行</p><p>1.写入内容</p><blockquote><p>insert into user<br>-&gt;(<br>-&gt;id,name,sex,birthday,job)<br>-&gt;values<br>-&gt;(<br>-&gt;1,’ctfstu’,’male’,’1999-05-06’,’it’)<br>-&gt;;</p></blockquote><p>2.查看数据表列表</p><p>insert into user (id,name,sex,birthday,job)<br>values (1,’ctfstu’,’male’,’1999-05-06’, ‘it’);</p><blockquote><p>select * from user;</p></blockquote><p>3.增删改</p><blockquote><p>alter table user add salary decimal(8,2);<br>#增加一列内容(decimal(8,2)最多八位，小数点后两位)</p></blockquote><blockquote><p>update user set salary&#x3D;5000;<br>#修改所有工资为5000</p></blockquote><blockquote><p>update user set name&#x3D;’benben’ where id&#x3D;1；<br>#修改id&#x3D;1的行name为benben</p></blockquote><blockquote><p>update user set name&#x3D;’benben2’,salary&#x3D;3000 where id&#x3D;1;<br>#修改id&#x3D;1的行name为benben2,工资为3000</p></blockquote><blockquote><p>alter table user drop salary;<br>#删除列<br>delete from user where job&#x3D;’it’;<br>#删除行<br>delete from user;<br>#删除表</p></blockquote>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>mysql增删改（一）</title>
       <link href="/2024/11/24/mysql%E5%A2%9E%E5%88%A0%E6%94%B9%EF%BC%88%E4%B8%80%EF%BC%89/"/>
       <url>/2024/11/24/mysql%E5%A2%9E%E5%88%A0%E6%94%B9%EF%BC%88%E4%B8%80%EF%BC%89/</url>
