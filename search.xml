@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>简单了解对抗攻击</title>
+      <link href="/2025/03/15/%E7%AE%80%E5%8D%95%E4%BA%86%E8%A7%A3%E5%AF%B9%E6%8A%97%E6%94%BB%E5%87%BB/"/>
+      <url>/2025/03/15/%E7%AE%80%E5%8D%95%E4%BA%86%E8%A7%A3%E5%AF%B9%E6%8A%97%E6%94%BB%E5%87%BB/</url>
+      
+        <content type="html"><![CDATA[<p>一、对抗攻击基础概念</p><ol><li>定义与分类<br>(1)知识级别:白盒攻击:对抗样本生成过程完全可见，攻击者完全掌握模型结构、参数及训练数据，攻击者可以直接修改模型参数、训练数据、模型结构等，通过对抗样本的特征或输出进行推理，获取模型的内部信息。黑盒攻击:对抗样本生成过程不可见，攻击者只能通过模型的API接口获取模型的输出，无法直接修改模型参数、训练数据、模型结构等。<br>(2)攻击目标:目标攻击:攻击目标是模型的预测结果，如对图像进行分类，攻击者希望模型将目标类别错误预测为其他类别。非目标攻击:攻击目标不是模型的预测结果，如对图像进行分类，攻击者希望模型将任意类别错误预测为目标类别。<br>(3)扰动可见性:可感知攻击:攻击者可以观察到扰动的效果，如对图像进行分类，攻击者可以看到扰动后的图像，可以判断扰动的幅度。隐形攻击:攻击者无法观察到扰动的效果，如对图像进行分类，攻击者只能看到扰动后的图像的类别标签，无法判断扰动的幅度。</li><li>数学形式化<br>对抗样本生成可表示为约束优化问题：<br><img src="/images/%E5%AF%B9%E6%8A%971.png" alt="1"></li></ol><p> fθ：目标模型<br> δ：对抗扰动<br> ϵ：扰动上限<br> p：范数类型（常用L∞&#x2F;L2）</p><p>二、经典攻击算法</p><ol><li>FGSM（Fast Gradient Sign Method）<br>原理：沿梯度上升方向添加扰动<br><img src="/images/%E5%AF%B9%E6%8A%972.png" alt="2"></li></ol><p>特点：</p><p>单步攻击，计算高效</p><p>适合生成隐形对抗样本</p><ol start="2"><li>PGD（Projected Gradient Descent）<br>原理：迭代式FGSM，每次迭代后投影到约束空间<br><img src="/images/%E5%AF%B9%E6%8A%973.png" alt="3"></li></ol><p>特点：</p><p>攻击效果强于FGSM</p><p>常用于对抗训练</p><ol start="3"><li>C&amp;W攻击（Carlini-Wagner）<br>原理：优化目标函数，最小化扰动幅度<br><img src="/images/%E5%AF%B9%E6%8A%974.png" alt="4"></li></ol><p>特点：</p><p>目前最强的L2攻击方法</p><p>可绕过大多数防御机制</p><p>三、防御技术全景</p><ol><li>主动防御<br>(1)对抗训练:通过对抗样本训练模型在训练数据中加入对抗样本提升鲁棒性，但可能降低正常准确率<br>(2)输入预处理:对输入数据进行预处理，如归一化、裁剪、旋转、缩放等，增强模型鲁棒性,如图像增强、文本增强,但可能降低模型性能<br>(3)梯度掩码:隐藏模型的梯度信息,增加攻击难度,可能被自适应攻击破解</li><li>被动检测<br>异常检测:统计输入数据的特征分布，识别异常样本<br>模型验证:使用辅助模型检测对抗样本<br>四、实战调试技巧</li><li>可视化分析工具<br>def visualize_perturbation(original, adversarial):<br> “””可视化对抗扰动”””<br> diff &#x3D; (adversarial - original).abs().sum(dim&#x3D;0)<br> plt.imshow(diff.numpy(), cmap&#x3D;’hot’)<br> plt.colorbar()<br> plt.title(‘Perturbation Heatmap’)<br> plt.show()</li></ol><h1 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h1><p>visualize_perturbation(orig_tensor, adv_tensor)<br>2. 攻击效果评估指标</p><p>def evaluate_attack(adv_acc, orig_acc, psnr):<br>    “””综合评估攻击效果”””<br>    success_rate &#x3D; 1 - adv_acc &#x2F; orig_acc<br>    stealth_score &#x3D; psnr &#x2F; 40  # 假设PSNR&gt;40为不可感知<br>    return 0.7<em>success_rate + 0.3</em>stealth_score<br>3. 参数调优策略<br>学习率:初期使用较大值（如0.01），后期逐步衰减至较小值,平衡收敛速度与稳定性<br>迭代次数:根据PSNR曲线动态调整（当PSNR变化&lt;0.1dB时停止迭代）,避免过优化<br>扰动约束:从宽松约束开始（如L∞&#x3D;0.1），逐步收紧,寻找最小有效扰动</p><p>五、前沿研究方向</p><ol><li>物理世界攻击：让数字攻击照进现实<br>核心挑战：<br>数字世界的攻击像「PS修图」，而物理攻击是「在真实物品上做手脚」。需要克服三大现实限制：<br>• 视角变化：攻击贴纸在不同角度拍摄下可能失效<br>• 光照干扰：强光&#x2F;阴影会改变攻击图案的视觉效果<br>• 材质限制：打印分辨率、反光特性影响攻击效果<br>经典案例拆解：<br>2018年MIT团队在停车标志上贴黑白贴纸，成功让自动驾驶系统识别为「限速45mph」。<br>关键技术：<br>• 使用EOT（Expectation Over Transformation）算法，模拟不同拍摄角度<br>• 在3D建模软件中预渲染攻击效果<br>• 选择高对比度图案抵抗光线变化<br>实验复现步骤：<br>(1) 用Blender建立交通标志3D模型<br>(2) 生成对抗贴纸图案<br>(3) 3D打印贴纸并实地测试<br>(4) 用手机多角度拍摄验证攻击效果<br>最新进展：<br>• 对抗服装：穿特殊图案T恤欺骗人脸识别系统<br>• 声波攻击：超声波干扰让手机麦克风接收错误指令<br>• 激光干扰：用激光笔照射摄像头导致目标检测失效</li><li>语义攻击：篡改图像的故事线<br>与传统攻击对比：<br>攻击类型         修改方式      人类感知         示例<br>传统攻击      像素级微小扰动     不可见    噪点般的细微变化<br>语义攻击      增删&#x2F;修改物体   可见但合理  给卡车添加特殊纹理<br>技术实现路径：<br> A[选择目标物体] –&gt; B(使用GAN生成合理变体)<br> B –&gt; C{是否符合语义}<br> C –&gt;|Yes| D[生成对抗样本]<br> C –&gt;|No| B<br> D –&gt; E[测试模型欺骗率]<br>典型应用场景：<br>• 电商攻防：在商品图上添加隐藏图案，绕过盗图检测<br>• 社交网络：修改图片中文字内容，误导内容审核AI<br>• 军事伪装：给装备涂装特殊图案，干扰卫星识别<br>2023突破性研究：<br>• Text2Attack：通过自然语言描述生成语义攻击</li></ol><p>prompt &#x3D; “在图片右下角添加一个半透明的红色圆形”<br>adv_image<br>&#x3D; text2attack.generate(original_image, prompt)<br>3. 自适应防御：打造AI的「免疫系统」<br>防御机制对比：</p><p>防御类型    原理        缺点           代表方法<br>静态防御固定预处理流程  容易被针对性绕过JPEG压缩、随机裁剪<br>自适应防御动态调整防御策略计算开销较大   随机化模型<br>动态防御框架：<br>class AdaptiveDefense(nn.Module):<br>    def <strong>init</strong>(self, base_model):<br>        super().<strong>init</strong>()<br>        self.models &#x3D; [base_model(), base_model(with_dropout&#x3D;True), base_model(pruned&#x3D;True)]</p><pre><code>def forward(self, x):    model = random.choice(self.models)  # 随机选择模型变体    return model(x)</code></pre><p>核心思想：将对抗训练转化为min-max优化问题<br><img src="/images/%E5%AF%B9%E6%8A%975.png" alt="5"><br>创新点：</p><p>证明对抗鲁棒性与标准准确率的理论平衡点</p><p>提出PGD对抗训练的金标准<br>for epoch in range(epochs):<br>    # 生成对抗样本<br>    x_adv &#x3D; projected_gradient_descent(model, x, y)<br>    # 更新模型<br>    loss &#x3D; criterion(model(x_adv), y)<br>    loss.backward()<br>    optimizer.step()</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>union注入</title>
       <link href="/2024/12/20/union%E6%B3%A8%E5%85%A5/"/>
       <url>/2024/12/20/union%E6%B3%A8%E5%85%A5/</url>
@@ -253,6 +272,33 @@
             <tag> 随笔 </tag>
             
             <tag> 日记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>我的 第一篇文章</title>
+      <link href="/2024/09/17/2024-08-06-%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%BF%83%E8%B7%AF%E5%8E%86%E7%A8%8B/"/>
+      <url>/2024/09/17/2024-08-06-%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%BF%83%E8%B7%AF%E5%8E%86%E7%A8%8B/</url>
+      
+        <content type="html"><![CDATA[<p>#我的博客搭建心路历程<br>首先我通过ChatGLM了解了什么是github和hexo并且知道了如何搭建基于 github+hexo 的个人博客。虽然我对编程一知半解，但是我怀着坚定的信念开始一步步学习如何搭建博客。</p><p>1.安装 Node.js 和 Git：在搭建过程中，我遇到了各种问题，如环境配置、依赖安装等。在不断尝试和摸索中，我逐步解决了这些问题。</p><p>2.初始化博客：按照教程，我成功初始化了博客，并学会了如何生成、部署静态文件。</p><p>当我第一次在浏览器中输入自己的博客地址，看到那篇亲手撰写的文章时，内心充满了喜悦。我知道，这不仅仅是一个博客，更是我成长道路上的一座里程碑。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 日记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 生活 </tag>
+            
+            <tag> 随笔 </tag>
             
         </tags>
       
